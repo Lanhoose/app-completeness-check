@@ -10,33 +10,477 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AjudaRouteImport } from './routes/ajuda'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as CadastroRouteImport } from './routes/cadastro'
+import { Route as ClienteRouteImport } from './routes/cliente'
+import { Route as ConfiguracoesRouteImport } from './routes/configuracoes'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as DepoimentosRouteImport } from './routes/depoimentos'
+import { Route as ErpRouteImport } from './routes/erp'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as FuncionalidadesRouteImport } from './routes/funcionalidades'
+import { Route as IntegracoesRouteImport } from './routes/integracoes'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as MateriaisRouteImport } from './routes/materiais'
+import { Route as MensagensRouteImport } from './routes/mensagens'
+import { Route as OrcamentosRouteImport } from './routes/orcamentos'
+import { Route as PlanosRouteImport } from './routes/planos'
+import { Route as PoliticaPrivacidadeRouteImport } from './routes/politica-privacidade'
+import { Route as PortalRouteImport } from './routes/portal'
+import { Route as RealidadeAumentadaRouteImport } from './routes/realidade-aumentada'
+import { Route as RecuperarSenhaRouteImport } from './routes/recuperar-senha'
+import { Route as RedirecionarRouteImport } from './routes/redirecionar'
+import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as ErpIndexRouteImport } from './routes/erp.index'
+import { Route as ErpConfiguracoesRouteImport } from './routes/erp.configuracoes'
+import { Route as ErpEstoqueRouteImport } from './routes/erp.estoque'
+import { Route as ErpGeralRouteImport } from './routes/erp.geral'
+import { Route as ErpLogsRouteImport } from './routes/erp.logs'
+import { Route as ErpManutencaoRouteImport } from './routes/erp.manutencao'
+import { Route as ErpMaquinasRouteImport } from './routes/erp.maquinas'
+import { Route as ErpPedidosRouteImport } from './routes/erp.pedidos'
+import { Route as ErpProducaoRouteImport } from './routes/erp.producao'
+import { Route as ErpQualidadeRouteImport } from './routes/erp.qualidade'
+import { Route as ErpRhRouteImport } from './routes/erp.rh'
+import { Route as ErpSistemaRouteImport } from './routes/erp.sistema'
+import { Route as ErpSuprimentosRouteImport } from './routes/erp.suprimentos'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AjudaRoute = AjudaRouteImport.update({
+  id: '/ajuda',
+  path: '/ajuda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CadastroRoute = CadastroRouteImport.update({
+  id: '/cadastro',
+  path: '/cadastro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClienteRoute = ClienteRouteImport.update({
+  id: '/cliente',
+  path: '/cliente',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConfiguracoesRoute = ConfiguracoesRouteImport.update({
+  id: '/configuracoes',
+  path: '/configuracoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DepoimentosRoute = DepoimentosRouteImport.update({
+  id: '/depoimentos',
+  path: '/depoimentos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ErpRoute = ErpRouteImport.update({
+  id: '/erp',
+  path: '/erp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FuncionalidadesRoute = FuncionalidadesRouteImport.update({
+  id: '/funcionalidades',
+  path: '/funcionalidades',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegracoesRoute = IntegracoesRouteImport.update({
+  id: '/integracoes',
+  path: '/integracoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MateriaisRoute = MateriaisRouteImport.update({
+  id: '/materiais',
+  path: '/materiais',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MensagensRoute = MensagensRouteImport.update({
+  id: '/mensagens',
+  path: '/mensagens',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrcamentosRoute = OrcamentosRouteImport.update({
+  id: '/orcamentos',
+  path: '/orcamentos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlanosRoute = PlanosRouteImport.update({
+  id: '/planos',
+  path: '/planos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticaPrivacidadeRoute = PoliticaPrivacidadeRouteImport.update({
+  id: '/politica-privacidade',
+  path: '/politica-privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalRoute = PortalRouteImport.update({
+  id: '/portal',
+  path: '/portal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RealidadeAumentadaRoute = RealidadeAumentadaRouteImport.update({
+  id: '/realidade-aumentada',
+  path: '/realidade-aumentada',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecuperarSenhaRoute = RecuperarSenhaRouteImport.update({
+  id: '/recuperar-senha',
+  path: '/recuperar-senha',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RedirecionarRoute = RedirecionarRouteImport.update({
+  id: '/redirecionar',
+  path: '/redirecionar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ErpIndexRoute = ErpIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ErpRoute,
+} as any)
+const ErpConfiguracoesRoute = ErpConfiguracoesRouteImport.update({
+  id: '/configuracoes',
+  path: '/configuracoes',
+  getParentRoute: () => ErpRoute,
+} as any)
+const ErpEstoqueRoute = ErpEstoqueRouteImport.update({
+  id: '/estoque',
+  path: '/estoque',
+  getParentRoute: () => ErpRoute,
+} as any)
+const ErpGeralRoute = ErpGeralRouteImport.update({
+  id: '/geral',
+  path: '/geral',
+  getParentRoute: () => ErpRoute,
+} as any)
+const ErpLogsRoute = ErpLogsRouteImport.update({
+  id: '/logs',
+  path: '/logs',
+  getParentRoute: () => ErpRoute,
+} as any)
+const ErpManutencaoRoute = ErpManutencaoRouteImport.update({
+  id: '/manutencao',
+  path: '/manutencao',
+  getParentRoute: () => ErpRoute,
+} as any)
+const ErpMaquinasRoute = ErpMaquinasRouteImport.update({
+  id: '/maquinas',
+  path: '/maquinas',
+  getParentRoute: () => ErpRoute,
+} as any)
+const ErpPedidosRoute = ErpPedidosRouteImport.update({
+  id: '/pedidos',
+  path: '/pedidos',
+  getParentRoute: () => ErpRoute,
+} as any)
+const ErpProducaoRoute = ErpProducaoRouteImport.update({
+  id: '/producao',
+  path: '/producao',
+  getParentRoute: () => ErpRoute,
+} as any)
+const ErpQualidadeRoute = ErpQualidadeRouteImport.update({
+  id: '/qualidade',
+  path: '/qualidade',
+  getParentRoute: () => ErpRoute,
+} as any)
+const ErpRhRoute = ErpRhRouteImport.update({
+  id: '/rh',
+  path: '/rh',
+  getParentRoute: () => ErpRoute,
+} as any)
+const ErpSistemaRoute = ErpSistemaRouteImport.update({
+  id: '/sistema',
+  path: '/sistema',
+  getParentRoute: () => ErpRoute,
+} as any)
+const ErpSuprimentosRoute = ErpSuprimentosRouteImport.update({
+  id: '/suprimentos',
+  path: '/suprimentos',
+  getParentRoute: () => ErpRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ajuda': typeof AjudaRoute
+  '/blog': typeof BlogRoute
+  '/cadastro': typeof CadastroRoute
+  '/cliente': typeof ClienteRoute
+  '/configuracoes': typeof ConfiguracoesRoute
+  '/contato': typeof ContatoRoute
+  '/depoimentos': typeof DepoimentosRoute
+  '/erp': typeof ErpRouteWithChildren
+  '/faq': typeof FaqRoute
+  '/funcionalidades': typeof FuncionalidadesRoute
+  '/integracoes': typeof IntegracoesRoute
+  '/login': typeof LoginRoute
+  '/materiais': typeof MateriaisRoute
+  '/mensagens': typeof MensagensRoute
+  '/orcamentos': typeof OrcamentosRoute
+  '/planos': typeof PlanosRoute
+  '/politica-privacidade': typeof PoliticaPrivacidadeRoute
+  '/portal': typeof PortalRoute
+  '/realidade-aumentada': typeof RealidadeAumentadaRoute
+  '/recuperar-senha': typeof RecuperarSenhaRoute
+  '/redirecionar': typeof RedirecionarRoute
+  '/sobre': typeof SobreRoute
+  '/erp/configuracoes': typeof ErpConfiguracoesRoute
+  '/erp/estoque': typeof ErpEstoqueRoute
+  '/erp/geral': typeof ErpGeralRoute
+  '/erp/logs': typeof ErpLogsRoute
+  '/erp/manutencao': typeof ErpManutencaoRoute
+  '/erp/maquinas': typeof ErpMaquinasRoute
+  '/erp/pedidos': typeof ErpPedidosRoute
+  '/erp/producao': typeof ErpProducaoRoute
+  '/erp/qualidade': typeof ErpQualidadeRoute
+  '/erp/rh': typeof ErpRhRoute
+  '/erp/sistema': typeof ErpSistemaRoute
+  '/erp/suprimentos': typeof ErpSuprimentosRoute
+  '/erp/': typeof ErpIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ajuda': typeof AjudaRoute
+  '/blog': typeof BlogRoute
+  '/cadastro': typeof CadastroRoute
+  '/cliente': typeof ClienteRoute
+  '/configuracoes': typeof ConfiguracoesRoute
+  '/contato': typeof ContatoRoute
+  '/depoimentos': typeof DepoimentosRoute
+  '/faq': typeof FaqRoute
+  '/funcionalidades': typeof FuncionalidadesRoute
+  '/integracoes': typeof IntegracoesRoute
+  '/login': typeof LoginRoute
+  '/materiais': typeof MateriaisRoute
+  '/mensagens': typeof MensagensRoute
+  '/orcamentos': typeof OrcamentosRoute
+  '/planos': typeof PlanosRoute
+  '/politica-privacidade': typeof PoliticaPrivacidadeRoute
+  '/portal': typeof PortalRoute
+  '/realidade-aumentada': typeof RealidadeAumentadaRoute
+  '/recuperar-senha': typeof RecuperarSenhaRoute
+  '/redirecionar': typeof RedirecionarRoute
+  '/sobre': typeof SobreRoute
+  '/erp/configuracoes': typeof ErpConfiguracoesRoute
+  '/erp/estoque': typeof ErpEstoqueRoute
+  '/erp/geral': typeof ErpGeralRoute
+  '/erp/logs': typeof ErpLogsRoute
+  '/erp/manutencao': typeof ErpManutencaoRoute
+  '/erp/maquinas': typeof ErpMaquinasRoute
+  '/erp/pedidos': typeof ErpPedidosRoute
+  '/erp/producao': typeof ErpProducaoRoute
+  '/erp/qualidade': typeof ErpQualidadeRoute
+  '/erp/rh': typeof ErpRhRoute
+  '/erp/sistema': typeof ErpSistemaRoute
+  '/erp/suprimentos': typeof ErpSuprimentosRoute
+  '/erp': typeof ErpIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ajuda': typeof AjudaRoute
+  '/blog': typeof BlogRoute
+  '/cadastro': typeof CadastroRoute
+  '/cliente': typeof ClienteRoute
+  '/configuracoes': typeof ConfiguracoesRoute
+  '/contato': typeof ContatoRoute
+  '/depoimentos': typeof DepoimentosRoute
+  '/erp': typeof ErpRouteWithChildren
+  '/faq': typeof FaqRoute
+  '/funcionalidades': typeof FuncionalidadesRoute
+  '/integracoes': typeof IntegracoesRoute
+  '/login': typeof LoginRoute
+  '/materiais': typeof MateriaisRoute
+  '/mensagens': typeof MensagensRoute
+  '/orcamentos': typeof OrcamentosRoute
+  '/planos': typeof PlanosRoute
+  '/politica-privacidade': typeof PoliticaPrivacidadeRoute
+  '/portal': typeof PortalRoute
+  '/realidade-aumentada': typeof RealidadeAumentadaRoute
+  '/recuperar-senha': typeof RecuperarSenhaRoute
+  '/redirecionar': typeof RedirecionarRoute
+  '/sobre': typeof SobreRoute
+  '/erp/configuracoes': typeof ErpConfiguracoesRoute
+  '/erp/estoque': typeof ErpEstoqueRoute
+  '/erp/geral': typeof ErpGeralRoute
+  '/erp/logs': typeof ErpLogsRoute
+  '/erp/manutencao': typeof ErpManutencaoRoute
+  '/erp/maquinas': typeof ErpMaquinasRoute
+  '/erp/pedidos': typeof ErpPedidosRoute
+  '/erp/producao': typeof ErpProducaoRoute
+  '/erp/qualidade': typeof ErpQualidadeRoute
+  '/erp/rh': typeof ErpRhRoute
+  '/erp/sistema': typeof ErpSistemaRoute
+  '/erp/suprimentos': typeof ErpSuprimentosRoute
+  '/erp/': typeof ErpIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/ajuda'
+    | '/blog'
+    | '/cadastro'
+    | '/cliente'
+    | '/configuracoes'
+    | '/contato'
+    | '/depoimentos'
+    | '/erp'
+    | '/faq'
+    | '/funcionalidades'
+    | '/integracoes'
+    | '/login'
+    | '/materiais'
+    | '/mensagens'
+    | '/orcamentos'
+    | '/planos'
+    | '/politica-privacidade'
+    | '/portal'
+    | '/realidade-aumentada'
+    | '/recuperar-senha'
+    | '/redirecionar'
+    | '/sobre'
+    | '/erp/configuracoes'
+    | '/erp/estoque'
+    | '/erp/geral'
+    | '/erp/logs'
+    | '/erp/manutencao'
+    | '/erp/maquinas'
+    | '/erp/pedidos'
+    | '/erp/producao'
+    | '/erp/qualidade'
+    | '/erp/rh'
+    | '/erp/sistema'
+    | '/erp/suprimentos'
+    | '/erp/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/ajuda'
+    | '/blog'
+    | '/cadastro'
+    | '/cliente'
+    | '/configuracoes'
+    | '/contato'
+    | '/depoimentos'
+    | '/faq'
+    | '/funcionalidades'
+    | '/integracoes'
+    | '/login'
+    | '/materiais'
+    | '/mensagens'
+    | '/orcamentos'
+    | '/planos'
+    | '/politica-privacidade'
+    | '/portal'
+    | '/realidade-aumentada'
+    | '/recuperar-senha'
+    | '/redirecionar'
+    | '/sobre'
+    | '/erp/configuracoes'
+    | '/erp/estoque'
+    | '/erp/geral'
+    | '/erp/logs'
+    | '/erp/manutencao'
+    | '/erp/maquinas'
+    | '/erp/pedidos'
+    | '/erp/producao'
+    | '/erp/qualidade'
+    | '/erp/rh'
+    | '/erp/sistema'
+    | '/erp/suprimentos'
+    | '/erp'
+  id:
+    | '__root__'
+    | '/'
+    | '/ajuda'
+    | '/blog'
+    | '/cadastro'
+    | '/cliente'
+    | '/configuracoes'
+    | '/contato'
+    | '/depoimentos'
+    | '/erp'
+    | '/faq'
+    | '/funcionalidades'
+    | '/integracoes'
+    | '/login'
+    | '/materiais'
+    | '/mensagens'
+    | '/orcamentos'
+    | '/planos'
+    | '/politica-privacidade'
+    | '/portal'
+    | '/realidade-aumentada'
+    | '/recuperar-senha'
+    | '/redirecionar'
+    | '/sobre'
+    | '/erp/configuracoes'
+    | '/erp/estoque'
+    | '/erp/geral'
+    | '/erp/logs'
+    | '/erp/manutencao'
+    | '/erp/maquinas'
+    | '/erp/pedidos'
+    | '/erp/producao'
+    | '/erp/qualidade'
+    | '/erp/rh'
+    | '/erp/sistema'
+    | '/erp/suprimentos'
+    | '/erp/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AjudaRoute: typeof AjudaRoute
+  BlogRoute: typeof BlogRoute
+  CadastroRoute: typeof CadastroRoute
+  ClienteRoute: typeof ClienteRoute
+  ConfiguracoesRoute: typeof ConfiguracoesRoute
+  ContatoRoute: typeof ContatoRoute
+  DepoimentosRoute: typeof DepoimentosRoute
+  ErpRoute: typeof ErpRouteWithChildren
+  FaqRoute: typeof FaqRoute
+  FuncionalidadesRoute: typeof FuncionalidadesRoute
+  IntegracoesRoute: typeof IntegracoesRoute
+  LoginRoute: typeof LoginRoute
+  MateriaisRoute: typeof MateriaisRoute
+  MensagensRoute: typeof MensagensRoute
+  OrcamentosRoute: typeof OrcamentosRoute
+  PlanosRoute: typeof PlanosRoute
+  PoliticaPrivacidadeRoute: typeof PoliticaPrivacidadeRoute
+  PortalRoute: typeof PortalRoute
+  RealidadeAumentadaRoute: typeof RealidadeAumentadaRoute
+  RecuperarSenhaRoute: typeof RecuperarSenhaRoute
+  RedirecionarRoute: typeof RedirecionarRoute
+  SobreRoute: typeof SobreRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +492,312 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ajuda': {
+      id: '/ajuda'
+      path: '/ajuda'
+      fullPath: '/ajuda'
+      preLoaderRoute: typeof AjudaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cadastro': {
+      id: '/cadastro'
+      path: '/cadastro'
+      fullPath: '/cadastro'
+      preLoaderRoute: typeof CadastroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cliente': {
+      id: '/cliente'
+      path: '/cliente'
+      fullPath: '/cliente'
+      preLoaderRoute: typeof ClienteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/configuracoes': {
+      id: '/configuracoes'
+      path: '/configuracoes'
+      fullPath: '/configuracoes'
+      preLoaderRoute: typeof ConfiguracoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/depoimentos': {
+      id: '/depoimentos'
+      path: '/depoimentos'
+      fullPath: '/depoimentos'
+      preLoaderRoute: typeof DepoimentosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/erp': {
+      id: '/erp'
+      path: '/erp'
+      fullPath: '/erp'
+      preLoaderRoute: typeof ErpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/funcionalidades': {
+      id: '/funcionalidades'
+      path: '/funcionalidades'
+      fullPath: '/funcionalidades'
+      preLoaderRoute: typeof FuncionalidadesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integracoes': {
+      id: '/integracoes'
+      path: '/integracoes'
+      fullPath: '/integracoes'
+      preLoaderRoute: typeof IntegracoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/materiais': {
+      id: '/materiais'
+      path: '/materiais'
+      fullPath: '/materiais'
+      preLoaderRoute: typeof MateriaisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mensagens': {
+      id: '/mensagens'
+      path: '/mensagens'
+      fullPath: '/mensagens'
+      preLoaderRoute: typeof MensagensRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/orcamentos': {
+      id: '/orcamentos'
+      path: '/orcamentos'
+      fullPath: '/orcamentos'
+      preLoaderRoute: typeof OrcamentosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/planos': {
+      id: '/planos'
+      path: '/planos'
+      fullPath: '/planos'
+      preLoaderRoute: typeof PlanosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politica-privacidade': {
+      id: '/politica-privacidade'
+      path: '/politica-privacidade'
+      fullPath: '/politica-privacidade'
+      preLoaderRoute: typeof PoliticaPrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portal': {
+      id: '/portal'
+      path: '/portal'
+      fullPath: '/portal'
+      preLoaderRoute: typeof PortalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/realidade-aumentada': {
+      id: '/realidade-aumentada'
+      path: '/realidade-aumentada'
+      fullPath: '/realidade-aumentada'
+      preLoaderRoute: typeof RealidadeAumentadaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recuperar-senha': {
+      id: '/recuperar-senha'
+      path: '/recuperar-senha'
+      fullPath: '/recuperar-senha'
+      preLoaderRoute: typeof RecuperarSenhaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/redirecionar': {
+      id: '/redirecionar'
+      path: '/redirecionar'
+      fullPath: '/redirecionar'
+      preLoaderRoute: typeof RedirecionarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/erp/': {
+      id: '/erp/'
+      path: '/'
+      fullPath: '/erp/'
+      preLoaderRoute: typeof ErpIndexRouteImport
+      parentRoute: typeof ErpRoute
+    }
+    '/erp/configuracoes': {
+      id: '/erp/configuracoes'
+      path: '/configuracoes'
+      fullPath: '/erp/configuracoes'
+      preLoaderRoute: typeof ErpConfiguracoesRouteImport
+      parentRoute: typeof ErpRoute
+    }
+    '/erp/estoque': {
+      id: '/erp/estoque'
+      path: '/estoque'
+      fullPath: '/erp/estoque'
+      preLoaderRoute: typeof ErpEstoqueRouteImport
+      parentRoute: typeof ErpRoute
+    }
+    '/erp/geral': {
+      id: '/erp/geral'
+      path: '/geral'
+      fullPath: '/erp/geral'
+      preLoaderRoute: typeof ErpGeralRouteImport
+      parentRoute: typeof ErpRoute
+    }
+    '/erp/logs': {
+      id: '/erp/logs'
+      path: '/logs'
+      fullPath: '/erp/logs'
+      preLoaderRoute: typeof ErpLogsRouteImport
+      parentRoute: typeof ErpRoute
+    }
+    '/erp/manutencao': {
+      id: '/erp/manutencao'
+      path: '/manutencao'
+      fullPath: '/erp/manutencao'
+      preLoaderRoute: typeof ErpManutencaoRouteImport
+      parentRoute: typeof ErpRoute
+    }
+    '/erp/maquinas': {
+      id: '/erp/maquinas'
+      path: '/maquinas'
+      fullPath: '/erp/maquinas'
+      preLoaderRoute: typeof ErpMaquinasRouteImport
+      parentRoute: typeof ErpRoute
+    }
+    '/erp/pedidos': {
+      id: '/erp/pedidos'
+      path: '/pedidos'
+      fullPath: '/erp/pedidos'
+      preLoaderRoute: typeof ErpPedidosRouteImport
+      parentRoute: typeof ErpRoute
+    }
+    '/erp/producao': {
+      id: '/erp/producao'
+      path: '/producao'
+      fullPath: '/erp/producao'
+      preLoaderRoute: typeof ErpProducaoRouteImport
+      parentRoute: typeof ErpRoute
+    }
+    '/erp/qualidade': {
+      id: '/erp/qualidade'
+      path: '/qualidade'
+      fullPath: '/erp/qualidade'
+      preLoaderRoute: typeof ErpQualidadeRouteImport
+      parentRoute: typeof ErpRoute
+    }
+    '/erp/rh': {
+      id: '/erp/rh'
+      path: '/rh'
+      fullPath: '/erp/rh'
+      preLoaderRoute: typeof ErpRhRouteImport
+      parentRoute: typeof ErpRoute
+    }
+    '/erp/sistema': {
+      id: '/erp/sistema'
+      path: '/sistema'
+      fullPath: '/erp/sistema'
+      preLoaderRoute: typeof ErpSistemaRouteImport
+      parentRoute: typeof ErpRoute
+    }
+    '/erp/suprimentos': {
+      id: '/erp/suprimentos'
+      path: '/suprimentos'
+      fullPath: '/erp/suprimentos'
+      preLoaderRoute: typeof ErpSuprimentosRouteImport
+      parentRoute: typeof ErpRoute
+    }
   }
 }
 
+interface ErpRouteChildren {
+  ErpConfiguracoesRoute: typeof ErpConfiguracoesRoute
+  ErpEstoqueRoute: typeof ErpEstoqueRoute
+  ErpGeralRoute: typeof ErpGeralRoute
+  ErpLogsRoute: typeof ErpLogsRoute
+  ErpManutencaoRoute: typeof ErpManutencaoRoute
+  ErpMaquinasRoute: typeof ErpMaquinasRoute
+  ErpPedidosRoute: typeof ErpPedidosRoute
+  ErpProducaoRoute: typeof ErpProducaoRoute
+  ErpQualidadeRoute: typeof ErpQualidadeRoute
+  ErpRhRoute: typeof ErpRhRoute
+  ErpSistemaRoute: typeof ErpSistemaRoute
+  ErpSuprimentosRoute: typeof ErpSuprimentosRoute
+  ErpIndexRoute: typeof ErpIndexRoute
+}
+
+const ErpRouteChildren: ErpRouteChildren = {
+  ErpConfiguracoesRoute: ErpConfiguracoesRoute,
+  ErpEstoqueRoute: ErpEstoqueRoute,
+  ErpGeralRoute: ErpGeralRoute,
+  ErpLogsRoute: ErpLogsRoute,
+  ErpManutencaoRoute: ErpManutencaoRoute,
+  ErpMaquinasRoute: ErpMaquinasRoute,
+  ErpPedidosRoute: ErpPedidosRoute,
+  ErpProducaoRoute: ErpProducaoRoute,
+  ErpQualidadeRoute: ErpQualidadeRoute,
+  ErpRhRoute: ErpRhRoute,
+  ErpSistemaRoute: ErpSistemaRoute,
+  ErpSuprimentosRoute: ErpSuprimentosRoute,
+  ErpIndexRoute: ErpIndexRoute,
+}
+
+const ErpRouteWithChildren = ErpRoute._addFileChildren(ErpRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AjudaRoute: AjudaRoute,
+  BlogRoute: BlogRoute,
+  CadastroRoute: CadastroRoute,
+  ClienteRoute: ClienteRoute,
+  ConfiguracoesRoute: ConfiguracoesRoute,
+  ContatoRoute: ContatoRoute,
+  DepoimentosRoute: DepoimentosRoute,
+  ErpRoute: ErpRouteWithChildren,
+  FaqRoute: FaqRoute,
+  FuncionalidadesRoute: FuncionalidadesRoute,
+  IntegracoesRoute: IntegracoesRoute,
+  LoginRoute: LoginRoute,
+  MateriaisRoute: MateriaisRoute,
+  MensagensRoute: MensagensRoute,
+  OrcamentosRoute: OrcamentosRoute,
+  PlanosRoute: PlanosRoute,
+  PoliticaPrivacidadeRoute: PoliticaPrivacidadeRoute,
+  PortalRoute: PortalRoute,
+  RealidadeAumentadaRoute: RealidadeAumentadaRoute,
+  RecuperarSenhaRoute: RecuperarSenhaRoute,
+  RedirecionarRoute: RedirecionarRoute,
+  SobreRoute: SobreRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
