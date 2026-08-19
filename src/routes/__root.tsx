@@ -14,6 +14,8 @@ import { Acessibilidade } from "@/components/Acessibilidade";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { aplicarSeed } from "@/lib/seed";
+
 
 function NotFoundComponent() {
   return (
