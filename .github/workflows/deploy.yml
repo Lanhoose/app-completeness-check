@@ -27,6 +27,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
 
       - name: Instalar dependências
         run: npm install
@@ -34,10 +35,54 @@ jobs:
       - name: Compilar aplicação
         run: npm run build
 
+      - name: Inspecionar build
+        run: |
+          echo "========================================"
+          echo "CONTEÚDO DE .output"
+          echo "========================================"
+          find .output -maxdepth 4 -type f -print | sort || true
+
+          echo ""
+          echo "========================================"
+          echo "CONTEÚDO DE .output/public"
+          echo "========================================"
+          find .output/public -maxdepth 4 -type f -print | sort || true
+
       - name: Preparar GitHub Pages
         run: |
-          cp .output/public/_shell.html .output/public/index.html
-          cp .output/public/_shell.html .output/public/404.html
+          set -e
+
+          echo "Preparando arquivos para GitHub Pages..."
+
+          mkdir -p .output/public
+
+          # Se o TanStack gerar _shell.html, usa ele como página principal.
+          if [ -f ".output/public/_shell.html" ]; then
+            echo "Encontrado _shell.html"
+            cp ".output/public/_shell.html" ".output/public/index.html"
+            cp ".output/public/_shell.html" ".output/public/404.html"
+
+          # Se index.html já existir, mantém o arquivo.
+          elif [ -f ".output/public/index.html" ]; then
+            echo "index.html já existe"
+            cp ".output/public/index.html" ".output/public/404.html"
+
+          else
+            echo "ERRO: nenhum index.html ou _shell.html foi encontrado."
+
+            echo ""
+            echo "Arquivos encontrados:"
+            find .output -maxdepth 5 -type f -print | sort || true
+
+            exit 1
+          fi
+
+          echo ""
+          echo "========================================"
+          echo "ARQUIVOS FINAIS DO GITHUB PAGES"
+          echo "========================================"
+
+          find .output/public -maxdepth 4 -type f -print | sort
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
