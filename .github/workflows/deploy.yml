@@ -34,70 +34,105 @@ jobs:
       - name: Compilar aplicação
         run: npm run build
 
-      - name: Inspecionar saída do build
+      - name: Localizar saída do build
         run: |
           echo "========================================"
-          echo "RAIZ DO PROJETO"
+          echo "ARQUIVOS GERADOS PELO BUILD"
           echo "========================================"
-          ls -la
+
+          find . \
+            -type f \
+            \( -name "index.html" -o -name "_shell.html" \) \
+            -not -path "./node_modules/*" \
+            -not -path "./.git/*" \
+            -print
 
           echo ""
           echo "========================================"
-          echo "TODOS OS INDEX.HTML"
+          echo "DIRETÓRIOS DE SAÍDA"
           echo "========================================"
-          find . -type f -name "index.html" -print || true
+
+          find . \
+            -maxdepth 5 \
+            -type d \
+            \( -name "dist" -o -name ".output" -o -name "build" \) \
+            -not -path "./node_modules/*" \
+            -print
 
           echo ""
           echo "========================================"
-          echo "TODOS OS ARQUIVOS HTML"
+          echo "ESTRUTURA DO PROJETO"
           echo "========================================"
-          find . -type f \( -name "*.html" -o -name "*.htm" \) -print | sort || true
+
+          find . \
+            -maxdepth 4 \
+            -not -path "./node_modules*" \
+            -not -path "./.git*" \
+            -print | sort
+
+      - name: Preparar arquivos para GitHub Pages
+        run: |
+          set -e
+
+          echo "Procurando index.html..."
+
+          INDEX=$(find . \
+            -type f \
+            -name "index.html" \
+            -not -path "./node_modules/*" \
+            -not -path "./.git/*" \
+            | head -n 1)
+
+          if [ -z "$INDEX" ]; then
+            echo "ERRO: nenhum index.html foi encontrado."
+            echo ""
+            echo "Arquivos HTML disponíveis:"
+            find . \
+              -type f \
+              \( -name "*.html" -o -name "*.htm" \) \
+              -not -path "./node_modules/*" \
+              -not -path "./.git/*" \
+              -print
+            exit 1
+          fi
+
+          echo "index.html encontrado em:"
+          echo "$INDEX"
+
+          SOURCE_DIR=$(dirname "$INDEX")
 
           echo ""
-          echo "========================================"
-          echo "PASTAS DE SAÍDA"
-          echo "========================================"
-          find . -maxdepth 5 -type d \
-            \( -name "dist" -o -name ".output" -o -name "build" -o -name "public" \) \
-            -print | sort || true
+          echo "Diretório de publicação:"
+          echo "$SOURCE_DIR"
 
-          echo ""
-          echo "========================================"
-          echo "CONTEÚDO DE .output"
-          echo "========================================"
-          if [ -d ".output" ]; then
-            find .output -maxdepth 6 -type f -print | sort
-          else
-            echo ".output não existe"
+          mkdir -p "$GITHUB_WORKSPACE/pages"
+
+          cp -R "$SOURCE_DIR"/. "$GITHUB_WORKSPACE/pages/"
+
+          # GitHub Pages precisa de uma página de erro para
+          # permitir o fallback da SPA.
+          if [ -f "$GITHUB_WORKSPACE/pages/index.html" ]; then
+            cp "$GITHUB_WORKSPACE/pages/index.html" \
+               "$GITHUB_WORKSPACE/pages/404.html"
           fi
 
           echo ""
           echo "========================================"
-          echo "CONTEÚDO DE dist"
+          echo "ARQUIVOS FINAIS"
           echo "========================================"
-          if [ -d "dist" ]; then
-            find dist -maxdepth 6 -type f -print | sort
-          else
-            echo "dist não existe"
-          fi
 
-          echo ""
-          echo "========================================"
-          echo "CONTEÚDO DE build"
-          echo "========================================"
-          if [ -d "build" ]; then
-            find build -maxdepth 6 -type f -print | sort
-          else
-            echo "build não existe"
-          fi
+          find "$GITHUB_WORKSPACE/pages" \
+            -maxdepth 6 \
+            -type f \
+            -print | sort
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Preparar arquivos
+      - name: Enviar arquivos para GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .output/public
+          path: ./pages
 
   deploy:
     environment:
