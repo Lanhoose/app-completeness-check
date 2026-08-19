@@ -81,7 +81,31 @@ function LoginPage() {
             Esqueci minha senha
           </Link>
         </p>
+        <div className="rounded-md border border-dashed border-border bg-muted/40 p-3 text-xs text-muted-foreground">
+          <p className="mb-1 font-bold text-foreground">Contas de demonstração</p>
+          <button
+            type="button"
+            className="block w-full text-left hover:text-primary"
+            onClick={() => {
+              setEmail("gestor@getech.com");
+              setSenha("getech123");
+            }}
+          >
+            Gestor — gestor@getech.com / getech123
+          </button>
+          <button
+            type="button"
+            className="block w-full text-left hover:text-primary"
+            onClick={() => {
+              setEmail("cliente@getech.com");
+              setSenha("getech123");
+            }}
+          >
+            Cliente — cliente@getech.com / getech123
+          </button>
+        </div>
       </form>
     </PageShell>
+
   );
 }

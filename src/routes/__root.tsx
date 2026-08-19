@@ -14,6 +14,8 @@ import { Acessibilidade } from "@/components/Acessibilidade";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { aplicarSeed } from "@/lib/seed";
+
 
 function NotFoundComponent() {
   return (
@@ -126,6 +128,12 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    aplicarSeed();
+  }, []);
+
+
 
   return (
     <QueryClientProvider client={queryClient}>
