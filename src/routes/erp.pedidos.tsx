@@ -130,7 +130,7 @@ function ErpPedidos() {
   };
 
   const avancar = (p: Pedido) => {
-    const proximo = STATUS[(STATUS.indexOf(p.status) + 1) % STATUS.length];
+    const proximo = STATUS[(STATUS.indexOf(p.status) + 1) % STATUS.length]!;
     update(p.id, { status: proximo });
     toast(`OP ${p.op || p.cliente}: ${proximo}`);
   };
