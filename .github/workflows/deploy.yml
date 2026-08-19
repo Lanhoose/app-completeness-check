@@ -34,52 +34,62 @@ jobs:
       - name: Compilar aplicação
         run: npm run build
 
-      - name: Inspecionar build
+      - name: Inspecionar saída do build
         run: |
           echo "========================================"
-          echo "CONTEÚDO DE .output"
+          echo "RAIZ DO PROJETO"
           echo "========================================"
-          find .output -maxdepth 5 -type f -print | sort || true
+          ls -la
 
           echo ""
           echo "========================================"
-          echo "CONTEÚDO DE .output/public"
+          echo "TODOS OS INDEX.HTML"
           echo "========================================"
-          find .output/public -maxdepth 5 -type f -print | sort || true
+          find . -type f -name "index.html" -print || true
 
-      - name: Preparar GitHub Pages
-        run: |
-          set -e
+          echo ""
+          echo "========================================"
+          echo "TODOS OS ARQUIVOS HTML"
+          echo "========================================"
+          find . -type f \( -name "*.html" -o -name "*.htm" \) -print | sort || true
 
-          echo "Preparando arquivos para GitHub Pages..."
+          echo ""
+          echo "========================================"
+          echo "PASTAS DE SAÍDA"
+          echo "========================================"
+          find . -maxdepth 5 -type d \
+            \( -name "dist" -o -name ".output" -o -name "build" -o -name "public" \) \
+            -print | sort || true
 
-          mkdir -p .output/public
-
-          if [ -f ".output/public/_shell.html" ]; then
-            echo "Encontrado _shell.html"
-            cp ".output/public/_shell.html" ".output/public/index.html"
-            cp ".output/public/_shell.html" ".output/public/404.html"
-
-          elif [ -f ".output/public/index.html" ]; then
-            echo "index.html já existe"
-            cp ".output/public/index.html" ".output/public/404.html"
-
+          echo ""
+          echo "========================================"
+          echo "CONTEÚDO DE .output"
+          echo "========================================"
+          if [ -d ".output" ]; then
+            find .output -maxdepth 6 -type f -print | sort
           else
-            echo "ERRO: nenhum index.html ou _shell.html foi encontrado."
-
-            echo ""
-            echo "Arquivos encontrados:"
-            find .output -maxdepth 5 -type f -print | sort || true
-
-            exit 1
+            echo ".output não existe"
           fi
 
           echo ""
           echo "========================================"
-          echo "ARQUIVOS FINAIS DO GITHUB PAGES"
+          echo "CONTEÚDO DE dist"
           echo "========================================"
+          if [ -d "dist" ]; then
+            find dist -maxdepth 6 -type f -print | sort
+          else
+            echo "dist não existe"
+          fi
 
-          find .output/public -maxdepth 5 -type f -print | sort
+          echo ""
+          echo "========================================"
+          echo "CONTEÚDO DE build"
+          echo "========================================"
+          if [ -d "build" ]; then
+            find build -maxdepth 6 -type f -print | sort
+          else
+            echo "build não existe"
+          fi
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
