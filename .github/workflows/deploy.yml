@@ -27,7 +27,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
       - name: Instalar dependências
         run: npm install
@@ -40,13 +39,13 @@ jobs:
           echo "========================================"
           echo "CONTEÚDO DE .output"
           echo "========================================"
-          find .output -maxdepth 4 -type f -print | sort || true
+          find .output -maxdepth 5 -type f -print | sort || true
 
           echo ""
           echo "========================================"
           echo "CONTEÚDO DE .output/public"
           echo "========================================"
-          find .output/public -maxdepth 4 -type f -print | sort || true
+          find .output/public -maxdepth 5 -type f -print | sort || true
 
       - name: Preparar GitHub Pages
         run: |
@@ -56,13 +55,11 @@ jobs:
 
           mkdir -p .output/public
 
-          # Se o TanStack gerar _shell.html, usa ele como página principal.
           if [ -f ".output/public/_shell.html" ]; then
             echo "Encontrado _shell.html"
             cp ".output/public/_shell.html" ".output/public/index.html"
             cp ".output/public/_shell.html" ".output/public/404.html"
 
-          # Se index.html já existir, mantém o arquivo.
           elif [ -f ".output/public/index.html" ]; then
             echo "index.html já existe"
             cp ".output/public/index.html" ".output/public/404.html"
@@ -82,7 +79,7 @@ jobs:
           echo "ARQUIVOS FINAIS DO GITHUB PAGES"
           echo "========================================"
 
-          find .output/public -maxdepth 4 -type f -print | sort
+          find .output/public -maxdepth 5 -type f -print | sort
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
