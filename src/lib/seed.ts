@@ -198,7 +198,7 @@ export function aplicarSeed() {
     }
 
     // Coleções do ERP (só preenche as que estiverem vazias)
-    for (const [chave, valores] of Object.entries(DADOS)) {
+    for (const [chave, valores] of Object.entries(construirDados())) {
       const existente = localStorage.getItem(chave);
       const vazio = !existente || existente === "[]";
       if (vazio) localStorage.setItem(chave, JSON.stringify(valores));
