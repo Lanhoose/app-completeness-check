@@ -49,7 +49,8 @@ function registros<T extends Record<string, unknown>>(
   })) as (T & Registro)[];
 }
 
-const DADOS: Record<string, unknown[]> = {
+function construirDados(): Record<string, unknown[]> {
+  return {
   "getech:estoque": registros([
     { nome: "Rolamento SKF 6205", codigo: "RLM-6205", qtd: 42, minimo: 15, local: "Almox. A-01" },
     { nome: "Óleo hidráulico ISO 68", codigo: "OLE-ISO68", qtd: 8, minimo: 12, local: "Almox. B-04" },
@@ -169,7 +170,8 @@ const DADOS: Record<string, unknown[]> = {
     { desc: "Troca de vedação hidráulica", valor: 420.5, qtd: 3 },
     { desc: "Hora técnica especializada", valor: 180, qtd: 8 },
   ]),
-};
+  };
+}
 
 const LOGS_DEMO: Omit<LogEntry, "id" | "criadoEm">[] = [
   { operador: "Ana Ribeiro", acao: "LOGIN", descricao: "Ana Ribeiro entrou como gestor", nivel: "INFO" },
@@ -196,7 +198,7 @@ export function aplicarSeed() {
     }
 
     // Coleções do ERP (só preenche as que estiverem vazias)
-    for (const [chave, valores] of Object.entries(DADOS)) {
+    for (const [chave, valores] of Object.entries(construirDados())) {
       const existente = localStorage.getItem(chave);
       const vazio = !existente || existente === "[]";
       if (vazio) localStorage.setItem(chave, JSON.stringify(valores));
