@@ -1,0 +1,45 @@
+workflows:
+  android-capacitor:
+    name: GeTech Android (Capacitor)
+    max_build_duration: 45
+    instance_type: mac_mini_m2
+    environment:
+      node: 20
+      java: 17
+      vars:
+        # URL carregada pelo shell nativo (site publicado do Lovable).
+        CAP_SERVER_URL: "https://app-completer-checker.lovable.app"
+        PACKAGE_NAME: "com.getech.industrial"
+      # Para gerar um APK/AAB assinado, crie o grupo "getech_keystore" no Codemagic
+      # com CM_KEYSTORE, CM_KEYSTORE_PASSWORD, CM_KEY_ALIAS e CM_KEY_PASSWORD
+      # e descomente a linha abaixo.
+      # groups:
+      #   - getech_keystore
+    scripts:
+      - name: Instalar dependências
+        script: npm install --legacy-peer-deps
+      - name: Build web
+        script: npm run build
+      - name: Preparar projeto Android
+        script: |
+          npx cap add android || true
+          npx cap sync android
+      - name: Gerar APK de debug
+        script: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+      # - name: Gerar AAB assinado (release)
+      #   script: |
+      #     cd android
+      #     ./gradlew bundleRelease
+    artifacts:
+      - android/app/build/outputs/**/*.apk
+      - android/app/build/outputs/**/*.aab
+    publishing:
+      email:
+        recipients:
+          - contato@getech.com
+        notify:
+          success: true
+          failure: true
