@@ -1,28 +1,20 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-const isLovableSandbox =
-  process.env["LOVABLE_SANDBOX"] === "1" ||
-  !!process.env["DEV_SERVER__PROJECT_PATH"];
+// Build para GitHub Pages: `GITHUB_PAGES=1 bun run build`.
+// Sem essa variável mantemos o comportamento padrão do Lovable (Nitro + SSR).
+const isGithubPages = process.env["GITHUB_PAGES"] === "1";
 
 export default defineConfig({
-  // No GitHub Actions/GitHub Pages:
-  // desativa o Nitro para que o TanStack Start use
-  // a saída normal esperada pelo prerender.
-  nitro: isLovableSandbox ? undefined : false,
+  nitro: !isGithubPages,
 
   tanstackStart: {
-    // Mantém o server.ts personalizado do projeto Lovable.
+    // Mantém o server.ts personalizado do projeto (wrapper de erros SSR).
     server: {
       entry: "server",
     },
-
-    // Gera o shell estático para o GitHub Pages.
-    spa: {
-      enabled: true,
-    },
   },
 
-  vite: {
-    base: "/app-completeness-check/",
-  },
+  ...(isGithubPages
+    ? { vite: { base: "/app-completeness-check/" } }
+    : {}),
 });
