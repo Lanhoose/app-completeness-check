@@ -170,7 +170,8 @@ function construirDados(): Record<string, unknown[]> {
     { desc: "Troca de vedação hidráulica", valor: 420.5, qtd: 3 },
     { desc: "Hora técnica especializada", valor: 180, qtd: 8 },
   ]),
-};
+  };
+}
 
 const LOGS_DEMO: Omit<LogEntry, "id" | "criadoEm">[] = [
   { operador: "Ana Ribeiro", acao: "LOGIN", descricao: "Ana Ribeiro entrou como gestor", nivel: "INFO" },
