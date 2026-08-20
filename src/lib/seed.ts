@@ -49,7 +49,8 @@ function registros<T extends Record<string, unknown>>(
   })) as (T & Registro)[];
 }
 
-const DADOS: Record<string, unknown[]> = {
+function construirDados(): Record<string, unknown[]> {
+  return {
   "getech:estoque": registros([
     { nome: "Rolamento SKF 6205", codigo: "RLM-6205", qtd: 42, minimo: 15, local: "Almox. A-01" },
     { nome: "Óleo hidráulico ISO 68", codigo: "OLE-ISO68", qtd: 8, minimo: 12, local: "Almox. B-04" },
